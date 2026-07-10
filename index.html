@@ -118,6 +118,11 @@
             line-height: 1.65;
         }
 
+        .hero-sub strong {
+            color: #f0c02e;
+            font-weight: 600;
+        }
+
         .badges {
             display: flex;
             gap: 1rem;
@@ -439,14 +444,27 @@
 
         @media (max-width: 768px) {
             .hero {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 padding: 3rem 1.5rem 3rem;
-                gap: 2.5rem;
+                gap: 1.5rem;
                 text-align: center;
             }
 
+            /* lift the hero children up so the title, images and text can interleave */
             .hero-content {
-                align-items: center;
+                display: contents;
+            }
+
+            .hero h1 {
+                order: -2;
+                font-size: 2.4rem;
+            }
+
+            .hero-screenshots {
+                order: -1;
+                margin: 0.75rem 0;
             }
 
             .badges {
@@ -464,10 +482,6 @@
             .hero-screenshots img:nth-child(2) {
                 height: 290px;
                 margin-left: -36px;
-            }
-
-            .hero h1 {
-                font-size: 2.4rem;
             }
 
             .features-grid {
@@ -506,10 +520,10 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>Can You Guess a City<br><span>From Its Map Alone?</span></h1>
-                <p class="hero-sub">A geography quiz game built on real street maps. Study the coastline, the rivers,
-                    the street grid — then make your call.</p>
-                <p class="hero-sub">Themed city packs. Multiple map styles. Quick rounds.</p>
-                <p class="hero-sub">Free to play. No geography degree needed.</p>
+                <p class="hero-sub">One real street map. No labels, no hints. Read the rivers, the coastline, the
+                    grid — then <strong>trust your gut</strong>.</p>
+                <p class="hero-sub">Themed city packs, <strong>stunning map styles</strong>, and quick rounds that turn
+                    into <strong>"just one more"</strong>.</p>
                 <div class="badges">
                     <a href="https://apps.apple.com/app/city-map-guesser/id0000000000"
                         onclick="trackDownload('app_store', 'hero')"><img
@@ -552,7 +566,7 @@
         <div class="section-divider"></div>
 
         <!-- How it works -->
-        <section class="features" id="how">
+        <!-- <section class="features" id="how">
             <p class="section-label">How it works</p>
             <h2 class="section-title">Three steps per round.</h2>
             <div class="features-grid">
@@ -585,7 +599,7 @@
                 </div>
 
             </div>
-        </section>
+        </section> -->
 
 
         <div class="section-divider"></div>
