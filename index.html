@@ -31,15 +31,19 @@
     <meta name="twitter:image" content="https://citymapguesser.app/assets/appicon.png">
 
     <!-- Amplitude Analytics -->
-    <script src="https://cdn.amplitude.com/libs/analytics-browser-2-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/script/fd40947ca25a53335d400c937f0d9f05.js"></script>
     <script>
-        try {
-            window.amplitude.init('fd40947ca25a53335d400c937f0d9f05', {
-                autocapture: { sessions: true, pageViews: true }
-            });
-            window.amplitude.track('website_opened');
-        } catch (e) { /* analytics must never break the page */ }
-
+        window.amplitude.init("fd40947ca25a53335d400c937f0d9f05", {
+            fetchRemoteConfig: true,
+            autocapture: {
+                pageViews: true,           // auto-tracks every page visit
+                sessions: true,            // auto-tracks session start/end
+                elementInteractions: true, // auto-tracks clicks, inputs
+                attribution: true,         // tracks UTM params / referrers
+                fileDownloads: true,       // auto-tracks file download clicks
+                webVitals: true,           // tracks LCP, CLS, INP etc.
+            }
+        });
         function trackDownload(store, placement) {
             try {
                 window.amplitude.track('download_click', { store: store, placement: placement });
@@ -526,15 +530,16 @@
                     into <strong>"just one more"</strong>.</p>
                 <div class="badges">
                     <a href="https://apps.apple.com/app/apple-store/id6789102046?pt=126141521&ct=website&mt=8"
-                        onclick="trackDownload('app_store', 'hero')"><img
-                            src="assets/app-store-badge.png" alt="Download City Map Guesser on the App Store"></a>
+                        onclick="trackDownload('app_store', 'hero')"><img src="assets/app-store-badge.png"
+                            alt="Download City Map Guesser on the App Store"></a>
                     <a href="https://play.google.com/store/apps/details?id=app.citymapguesser"
-                        onclick="trackDownload('google_play', 'hero')"><img
-                            src="assets/google-play-badge.png" alt="Get City Map Guesser on Google Play"></a>
+                        onclick="trackDownload('google_play', 'hero')"><img src="assets/google-play-badge.png"
+                            alt="Get City Map Guesser on Google Play"></a>
                 </div>
             </div>
             <div class="hero-screenshots">
-                <img src="assets/phone1.png" alt="City Map Guesser city packs: US Cities, Europe Cities, Capitals, Mega Cities and more">
+                <img src="assets/phone1.png"
+                    alt="City Map Guesser city packs: US Cities, Europe Cities, Capitals, Mega Cities and more">
                 <img src="assets/phone2.png" alt="City Map Guesser app showing themed city pack selection">
             </div>
         </section>
@@ -610,9 +615,12 @@
             <h2 class="section-title">Built for map lovers</h2>
             <div class="screenshots-wrapper">
                 <div class="screenshots-track">
-                    <img src="assets/cmg_SS1.png?v=2" alt="Can you guess a city from a map? City Map Guesser screenshot">
-                    <img src="assets/cmg_SS2.png?v=2" alt="Play games with special city packs — City Map Guesser screenshot">
-                    <img src="assets/cmg_SS3.png?v=2" alt="Learn while you play — quiz round with map and multiple choice answers">
+                    <img src="assets/cmg_SS1.png?v=2"
+                        alt="Can you guess a city from a map? City Map Guesser screenshot">
+                    <img src="assets/cmg_SS2.png?v=2"
+                        alt="Play games with special city packs — City Map Guesser screenshot">
+                    <img src="assets/cmg_SS3.png?v=2"
+                        alt="Learn while you play — quiz round with map and multiple choice answers">
                     <img src="assets/cmg_SS4.png?v=2" alt="Explore different map styles — City Map Guesser screenshot">
                 </div>
                 <div class="screenshots-fade"></div>
@@ -675,7 +683,8 @@
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24">
                             <circle cx="12" cy="12" r="9" />
-                            <path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z" />
+                            <path
+                                d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z" />
                         </svg>
                     </div>
                     <h3>Different Map Styles</h3>
@@ -721,8 +730,8 @@
                 </div>
                 <div class="badges">
                     <a href="https://apps.apple.com/app/apple-store/id6789102046?pt=126141521&ct=website&mt=8"
-                        onclick="trackDownload('app_store', 'download_section')"><img
-                            src="assets/app-store-badge.png" alt="Download City Map Guesser on the App Store"></a>
+                        onclick="trackDownload('app_store', 'download_section')"><img src="assets/app-store-badge.png"
+                            alt="Download City Map Guesser on the App Store"></a>
                     <a href="https://play.google.com/store/apps/details?id=app.citymapguesser"
                         onclick="trackDownload('google_play', 'download_section')"><img
                             src="assets/google-play-badge.png" alt="Get City Map Guesser on Google Play"></a>
@@ -761,7 +770,8 @@
         <!-- Footer -->
         <footer>
             <p>&copy; 2026 City Map Guesser &mdash; <a href="/">Home</a> &middot; <a href="/terms">Terms</a> &middot;
-                <a href="/privacy">Privacy</a> &middot; <a href="/support">Support</a></p>
+                <a href="/privacy">Privacy</a> &middot; <a href="/support">Support</a>
+            </p>
         </footer>
 
     </div>
